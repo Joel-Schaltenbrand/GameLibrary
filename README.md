@@ -38,7 +38,6 @@ Check out the latest releases at [GitHub Releases](https://github.com/joel-schal
 #### JavaScript-Libraries
 
 - [jQuery](https://jquery.com/)
-- [Popper.js](https://popper.js.org/)
 - [Stomp.js](https://github.com/stomp-js/stompjs)
 - [SockJS](https://github.com/sockjs/sockjs-client)
 
