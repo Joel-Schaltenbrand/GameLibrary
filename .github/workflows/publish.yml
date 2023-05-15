@@ -1,0 +1,23 @@
+name: publish
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  publish-game-library:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and Push
+        run: |
+          TAG=$(echo "${{ github.ref }}" | sed -e 's/refs\/tags\///' -e 's/^v//')
+          docker build . --tag ghcr.io/joel-schaltenbrand/gamelibrary:"$TAG"
+          docker push ghcr.io/joel-schaltenbrand/gamelibrary:"$TAG"
+          docker tag ghcr.io/joel-schaltenbrand/gamelibrary:"$TAG" ghcr.io/joel-schaltenbrand/gamelibrary:latest
+          docker push ghcr.io/joel-schaltenbrand/gamelibrary:latest

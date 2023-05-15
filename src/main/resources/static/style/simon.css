@@ -1,0 +1,177 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2023 Joel Schaltenbrand.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+.simon-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    height: 700px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.game-board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 350px;
+    height: 350px;
+    margin-bottom: 30px;
+}
+
+.game-tile {
+    width: 50%;
+    height: 50%;
+    cursor: pointer;
+    border: black solid 10px;
+}
+
+.red {
+    border-top-right-radius: 500px;
+    background-color: #f44336;
+}
+
+.green {
+    border-top-left-radius: 500px;
+    background-color: #4caf50;
+}
+
+.blue {
+    border-bottom-right-radius: 500px;
+    background-color: #2196f3;
+}
+
+.yellow {
+    border-bottom-left-radius: 500px;
+    background-color: #ffb700;
+}
+
+.game-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.count-display {
+    margin: 0 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.light {
+    animation: light-up 0.5s ease-in-out;
+}
+
+@keyframes light-up {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.trafficLight {
+    display: inline-block;
+    width: 30px;
+    height: 90px;
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    right: -13%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    zoom: 3;
+}
+
+.trafficLight span,
+.trafficLight:before,
+.trafficLight:after {
+    content: "";
+    color: white;
+    position: absolute;
+    border-radius: 15px;
+    width: 22px;
+    height: 22px;
+    left: 4px;
+}
+
+.trafficLight:before {
+    top: 6px;
+    background-color: dimgrey;
+}
+
+.trafficLight:after {
+    top: 34px;
+    background-color: dimgrey;
+}
+
+.trafficLight span {
+    top: 62px;
+    background-color: dimgrey;
+}
+
+.trafficLightRed:before {
+    background-color: red;
+    box-shadow: 0 0 20px red;
+}
+
+.trafficLightYellow:after {
+    background-color: yellow;
+    box-shadow: 0 0 20px yellow;
+}
+
+.trafficLightGreen span {
+    background-color: limegreen;
+    box-shadow: 0 0 20px limegreen;
+}
+
+.trafficLightFlashing:after {
+    animation-name: flashing;
+    animation-timing-function: ease-in-out;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes flashing {
+    0% {
+        background-color: dimgrey;
+    }
+    50% {
+        background-color: yellow;
+        box-shadow: 0 0 20px yellow;
+    }
+    100% {
+        background-color: dimgrey;
+    }
+}
