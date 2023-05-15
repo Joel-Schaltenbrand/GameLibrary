@@ -15,7 +15,7 @@ Check out the latest releases at [GitHub Releases](https://github.com/joel-schal
 * Play the classic game Hangman.
 * Play the classic game Simon.
 * Play the classic game Tic-Tac-Toe.
-* More games to be added soon!
+* And more!
 
 ---
 
