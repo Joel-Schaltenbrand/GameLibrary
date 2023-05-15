@@ -4,7 +4,7 @@ COPY pom.xml /home/app
 COPY .git /home/app/.git
 RUN mvn -f /home/app/pom.xml clean package
 
-FROM openjdk:20
+FROM openjdk:21
 MAINTAINER joel1102
 LABEL org.opencontainers.image.description = "Game Library by Joel Schaltenbrand"
 LABEL org.opencontainers.image.source = "https://github.com/joel-schaltenbrand/GameLibrary"
